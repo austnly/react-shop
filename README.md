@@ -10,6 +10,7 @@ A demo e-commerce site using Google Firestore, the React library, and React-Boot
 
 -   [Screenshots](#screenshots)
 -   [Goals](#goals)
+-   [Tech Stack](#tech-stack)
 -   [Implementation](#implementation)
     -   [MVP](#mvp)
     -   [Bonus Features](#bonus-features)
@@ -40,6 +41,17 @@ A demo e-commerce site using Google Firestore, the React library, and React-Boot
 -   To employ a backend cloud database system based on a RESTful API (**Google Firestore**)
 -   To facilitate all CRUD actions between the UI and the backend database
 -   To practice and improve in deploying **React** and compatible libraries such as **React Router** and **React-Bootstrap** to create a functional and aesthetic UI
+
+## Tech Stack
+
+-   HTML
+-   CSS/SCSS
+-   JavaScript
+-   Git
+-   ReactJS
+-   React Router DOM
+-   (React-Bootstrap)[https://react-bootstrap.github.io]
+-   Google Firestore NoSQL Database
 
 ## Implementation
 
