@@ -1,0 +1,12 @@
+.Cart {
+	border: 1px solid gray;
+	padding: 10px;
+	margin: auto;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: nowrap;
+	gap: 10px;
+	flex-grow: 1;
+}

@@ -1,0 +1,19 @@
+.ProductGrid {
+	margin: 40px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	flex-grow: 1;
+
+	&__Grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 300px);
+
+		width: 100%;
+
+		gap: 10px;
+
+		justify-content: center;
+	}
+}

@@ -1,0 +1,25 @@
+.ProductPage {
+	display: flex;
+	// align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+	gap: 20px;
+
+	flex-grow: 1;
+
+	&__Img {
+		min-width: 350px;
+		width: 50%;
+		object-fit: cover;
+	}
+
+	&__InfoBox {
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+		flex-flow: column nowrap;
+		min-width: 350px;
+		width: 40%;
+		margin: 20px;
+	}
+}

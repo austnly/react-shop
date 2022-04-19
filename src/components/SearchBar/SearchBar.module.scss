@@ -1,0 +1,13 @@
+.SearchBar {
+	margin: auto 20px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+
+	&__Input {
+		&:focus {
+			// outline: 5px solid rgba(0, 153, 255, 0.528);
+			// border-radius: 3px;
+		}
+	}
+}

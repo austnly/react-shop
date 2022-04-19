@@ -5,12 +5,12 @@ import "firebase/compat/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: "AIzaSyCjrXm42M85B-fPRJjjkE14dUHYeMymNgo",
-	authDomain: "react-shop-7fd43.firebaseapp.com",
-	projectId: "react-shop-7fd43",
-	storageBucket: "react-shop-7fd43.appspot.com",
-	messagingSenderId: "856583639558",
-	appId: "1:856583639558:web:c7e4e2e450b836025e2987",
+	apiKey: "AIzaSyDlEcMc_ApHxmIDHNjiBYQ_QAGJGD1qz5I",
+	authDomain: "react-shop-94d11.firebaseapp.com",
+	projectId: "react-shop-94d11",
+	storageBucket: "react-shop-94d11.appspot.com",
+	messagingSenderId: "110982793594",
+	appId: "1:110982793594:web:3bd0f329efe4e23b17eec3",
 };
 
 firebase.initializeApp(firebaseConfig);
