@@ -111,6 +111,7 @@ I encountered the following issues with using React/Firestore and found the foll
 
 I added the suggested bonus features, as well as some more functionality to the search:
 
+-   [x] Responsive UI
 -   [x] Added pagination
 -   [x] Added favourite toggle
 -   [x] Added Favourites page
