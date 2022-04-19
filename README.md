@@ -20,22 +20,20 @@ A demo e-commerce site using Google Firestore, the React library, and React-Boot
 
 ## Screenshots
 
-<div style="display: flex">
 <figure>
 <img src="./screenshots/home.png" height="300px" alt="Home Page" />
-<p><i>Home Page</i></p>
+<figcaption><i>Home Page</i></figcaption>
 </figure>
 
 <figure>
 <img src="./screenshots/product.png" height="300px" alt="Product Page" />
-<p><i>Product Page</i></p>
+<figcaption><i>Product Page</i></figcaption>
 </figure>
 
 <figure>
 <img src="./screenshots/cart.png" height="300px" alt="Cart Page" />
-<p><i>Cart</i></p>
+<figcaption><i>Cart</i></figcaption>
 </figure>
-</div>
 
 ## Goals
 
