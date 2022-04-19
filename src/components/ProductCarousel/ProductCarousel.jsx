@@ -16,60 +16,64 @@ const ProductCarousel = () => {
 	const navigate = useNavigate();
 
 	return (
-		<Carousel className={styles.ProductCarousel}>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="/react-shop/images/hat-banner.jpg"
-					alt="First slide"
-					onClick={() => {
-						handleFeatureSearch("hat");
-					}}
-				/>
-				<Carousel.Caption>
-					<h3>Featured Hat</h3>
-					<p>
-						Nulla vitae elit libero, a pharetra augue mollis
-						interdum.
-					</p>
-				</Carousel.Caption>
-			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="/react-shop/images/pants-banner.jpg"
-					alt="Second slide"
-					onClick={() => {
-						handleFeatureSearch("hat");
-					}}
-				/>
+		<div className={styles.ProductCarousel}>
+			<div className={styles.ProductCarousel__Overlay}></div>
+			<Carousel>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="/react-shop/images/hat-banner.jpg"
+						alt="First slide"
+						onClick={() => {
+							handleFeatureSearch("hat");
+						}}
+					/>
+					<Carousel.Caption className={styles.ProductCarousel__Text}>
+						<h3>Featured Hat</h3>
+						<p>
+							Nulla vitae elit libero, a pharetra augue mollis
+							interdum.
+						</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="/react-shop/images/pants-banner.jpg"
+						alt="Second slide"
+						onClick={() => {
+							handleFeatureSearch("hat");
+						}}
+					/>
 
-				<Carousel.Caption>
-					<h3>Featured Pants</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</p>
-				</Carousel.Caption>
-			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="/react-shop/images/murray-banner.jpg"
-					alt="Third slide"
-					onClick={() => {
-						handleFeatureSearch("hat");
-					}}
-				/>
+					<Carousel.Caption className={styles.ProductCarousel__Text}>
+						<h3>Featured Pants</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit.
+						</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="/react-shop/images/murray-banner.jpg"
+						alt="Third slide"
+						onClick={() => {
+							handleFeatureSearch("hat");
+						}}
+					/>
 
-				<Carousel.Caption>
-					<h3>Featured Shirt</h3>
-					<p>
-						Praesent commodo cursus magna, vel scelerisque nisl
-						consectetur.
-					</p>
-				</Carousel.Caption>
-			</Carousel.Item>
-		</Carousel>
+					<Carousel.Caption className={styles.ProductCarousel__Text}>
+						<h3>Featured Shirt</h3>
+						<p>
+							Praesent commodo cursus magna, vel scelerisque nisl
+							consectetur.
+						</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+			</Carousel>
+		</div>
 	);
 };
 
