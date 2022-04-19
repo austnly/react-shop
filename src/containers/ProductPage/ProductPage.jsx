@@ -129,28 +129,25 @@ const ProductPage = () => {
 				className={styles.ProductPage__Img}
 			/>
 			<div className={styles.ProductPage__InfoBox}>
-				<h3>{current.productName}</h3>
-				<p>${current.price}</p>
-				<div>
+				<h3>
+					{current.productName}{" "}
 					{current.favourite ? (
 						<FontAwesomeIcon
 							icon={filledHeart}
 							onClick={handleUnfav}
+							className={styles.Heart}
 						/>
 					) : (
 						<FontAwesomeIcon
 							icon={unfilledHeart}
 							onClick={handleFav}
+							className={styles.Heart}
 						/>
 					)}
-				</div>
-				{current?.["quantities"]?.[variant] > 0 ? (
-					<p>{current["quantities"][variant]} In Stock</p>
-				) : variant === "none" ? (
-					<></>
-				) : (
-					<p>Out of Stock</p>
-				)}
+				</h3>
+				<p>${current.price}</p>
+
+				<label htmlFor="variant">Size</label>
 				<select
 					name="variant"
 					id="variant"
@@ -172,12 +169,20 @@ const ProductPage = () => {
 						<></>
 					)}
 				</select>
+				{current?.["quantities"]?.[variant] > 0 ? (
+					<p>{current["quantities"][variant]} In Stock</p>
+				) : variant === "none" ? (
+					<></>
+				) : (
+					<p>Out of Stock</p>
+				)}
 				<Button
 					variant="outline-success"
 					onClick={handleAddCart}
 					disabled={variant === "none"}>
 					Add to Cart
 				</Button>
+				<p>{current.description}</p>
 				{/* <button onClick={handleAddCart} disabled={variant === "none"}>
 					Add to Cart
 				</button> */}

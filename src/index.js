@@ -20,7 +20,7 @@ root.render(
 			<Route path="/" element={<App />}>
 				<Route index element={<Home />} />
 				<Route path="cart" element={<Cart />} />
-				<Route path="products" element={<ProductGrid />} />
+				<Route path="products" element={<ProductGrid fav={false} />} />
 				<Route path="products/:productId" element={<ProductPage />} />
 				<Route path="favourites" element={<ProductGrid fav={true} />} />
 			</Route>

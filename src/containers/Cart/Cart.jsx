@@ -20,10 +20,16 @@ const Cart = () => {
 
 	return (
 		<div className={styles.Cart}>
-			{cart.map((item, index) => {
-				return <CartCard key={index} product={item} />;
-			})}
-			<h3>Total: ${total}</h3>
+			<h3>Cart Items</h3>
+			{!cart.length ? (
+				<p>Your cart is empty. Get shopping!</p>
+			) : (
+				cart.map((item, index) => {
+					return <CartCard key={index} product={item} />;
+				})
+			)}
+			<div className={styles.Cart__Divider}></div>
+			<h3 className={styles.Cart__Total}>Total: ${total}</h3>
 		</div>
 	);
 };

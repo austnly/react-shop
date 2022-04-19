@@ -15,10 +15,14 @@ const CartCard = ({ product }) => {
 
 	return (
 		<div className={styles.CartCard}>
-			<img src={product.imageUrl} alt="" />
+			<Link to={`/products/${product.id}`}>
+				<img src={product.imageUrl} alt="" />
+			</Link>
 			<div className={styles.CartCard__Info}>
-				<p>{product.productName}</p>
-				<p>${product.price} each</p>
+				<Link to={`/products/${product.id}`}>
+					<h5>{product.productName}</h5>
+				</Link>
+				<p className={styles.CartCard__Price}>${product.price} each</p>
 
 				{Object.entries(product.quantities)
 					.sort(
@@ -38,7 +42,7 @@ const CartCard = ({ product }) => {
 							/>
 						);
 					})}
-				<p>
+				<p className={styles.CartCard__Subtotal}>
 					Subtotal: $
 					{(
 						Object.values(product.quantities).reduce(

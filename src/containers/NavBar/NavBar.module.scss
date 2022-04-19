@@ -3,10 +3,12 @@
 	// display: flex;
 	// justify-content: space-between;
 
-	// &__List {
-	// 	display: flex;
-	// 	gap: 10px;
-	// }
+	&__List {
+		&_Links {
+			display: flex;
+			gap: 10px;
+		}
+	}
 }
 
 // a {

@@ -1,4 +1,18 @@
 .CartButtons {
-	display: flex;
-	flex-flow: row nowrap;
+	display: grid;
+	grid-template-columns: repeat(5, 40px);
+	margin: 2px 0px;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+
+	&_Btn {
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+	}
+
+	h6 {
+		margin: 0px;
+	}
 }

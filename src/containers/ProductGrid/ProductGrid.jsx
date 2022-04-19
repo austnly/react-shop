@@ -7,6 +7,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { Pagination } from "react-bootstrap";
 
 const ProductGrid = ({ fav = false }) => {
+	console.log("-----Product Grid Rendering------");
 	const [products] = useOutletContext();
 
 	const [displayedProds, setDisplayedProds] = useState([]);
@@ -86,7 +87,7 @@ const ProductGrid = ({ fav = false }) => {
 		} else if (products.length && fav) {
 			setDisplayedProds(products.filter((product) => product.favourite));
 		}
-	}, [products, search, page, perPage]);
+	}, [products, search, page, perPage, fav]);
 
 	useEffect(() => {
 		console.log(displayedProds);

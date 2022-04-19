@@ -21,23 +21,21 @@ const NavBar = () => {
 				<Navbar.Collapse
 					id="navbarScroll"
 					className={styles.NavBar__List}>
-					<Nav justify="true" className="ms-auto">
-						<Nav.Link href="/react-shop/" onClick={handleReset}>
+					<Nav
+						justify="true"
+						className={styles.NavBar__List_Links + " ms-auto"}>
+						<Link to="/" onClick={handleReset}>
 							Home
-						</Nav.Link>
-						<Nav.Link
-							href="/react-shop/products"
-							onClick={handleReset}>
+						</Link>
+						<Link to="/products" onClick={handleReset}>
 							Products
-						</Nav.Link>
-						<Nav.Link
-							href="/react-shop/favourites"
-							onClick={handleReset}>
+						</Link>
+						<Link to="/favourites" onClick={handleReset}>
 							Favourites
-						</Nav.Link>
-						<Nav.Link href="/react-shop/cart" onClick={handleReset}>
+						</Link>
+						<Link to="/cart" onClick={handleReset}>
 							Cart
-						</Nav.Link>
+						</Link>
 					</Nav>
 					<SearchBar />
 				</Navbar.Collapse>

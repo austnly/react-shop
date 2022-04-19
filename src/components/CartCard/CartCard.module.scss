@@ -5,16 +5,24 @@
 	gap: 10px;
 
 	&__Info {
-		&_Btns {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-		}
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-evenly;
+	}
+
+	&__Price {
+		text-align: right;
+	}
+
+	&__Subtotal {
+		margin: 10px 0px 0px 0px;
+		text-align: right;
 	}
 
 	img {
 		width: 200px;
-		height: 200px;
+		min-height: 200px;
 		object-fit: cover;
+		border-radius: 5px;
 	}
 }
