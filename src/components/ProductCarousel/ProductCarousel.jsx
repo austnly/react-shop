@@ -24,11 +24,12 @@ const ProductCarousel = () => {
 						className="d-block w-100"
 						src="/react-shop/images/hat-banner.jpg"
 						alt="First slide"
+					/>
+					<Carousel.Caption
+						className={styles.ProductCarousel__Text}
 						onClick={() => {
 							handleFeatureSearch("hat");
-						}}
-					/>
-					<Carousel.Caption className={styles.ProductCarousel__Text}>
+						}}>
 						<h3>Featured Hat</h3>
 						<p>
 							Nulla vitae elit libero, a pharetra augue mollis
@@ -41,12 +42,13 @@ const ProductCarousel = () => {
 						className="d-block w-100"
 						src="/react-shop/images/pants-banner.jpg"
 						alt="Second slide"
-						onClick={() => {
-							handleFeatureSearch("hat");
-						}}
 					/>
 
-					<Carousel.Caption className={styles.ProductCarousel__Text}>
+					<Carousel.Caption
+						className={styles.ProductCarousel__Text}
+						onClick={() => {
+							handleFeatureSearch("hat");
+						}}>
 						<h3>Featured Pants</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -59,12 +61,13 @@ const ProductCarousel = () => {
 						className="d-block w-100"
 						src="/react-shop/images/murray-banner.jpg"
 						alt="Third slide"
-						onClick={() => {
-							handleFeatureSearch("hat");
-						}}
 					/>
 
-					<Carousel.Caption className={styles.ProductCarousel__Text}>
+					<Carousel.Caption
+						className={styles.ProductCarousel__Text}
+						onClick={() => {
+							handleFeatureSearch("hat");
+						}}>
 						<h3>Featured Shirt</h3>
 						<p>
 							Praesent commodo cursus magna, vel scelerisque nisl

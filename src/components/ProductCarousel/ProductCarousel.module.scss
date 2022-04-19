@@ -3,6 +3,7 @@
 
 	&__Text {
 		z-index: 2;
+		cursor: pointer;
 	}
 
 	&__Overlay {
@@ -18,7 +19,6 @@
 	img {
 		height: 400px;
 		object-fit: cover;
-		cursor: pointer;
 		z-index: 0;
 	}
 }
