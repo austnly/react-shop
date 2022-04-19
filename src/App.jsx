@@ -7,33 +7,27 @@ import SearchProvider from "./context/SearchContext";
 import Footer from "./components/Footer";
 
 function App() {
+	// Products state stores product array locally
 	const [products, setProducts] = useState([]);
 
+	// Cart state stores product array locally
 	const [cart, setCart] = useState([]);
 
+	// Sets products state from Database
 	const fetchProducts = async () => {
 		setProducts(await getProducts());
-		console.log("Fetching Products");
 	};
 
+	// Sets cart state from Database
 	const fetchCart = async () => {
 		setCart(await getCart());
-		console.log("Fetching Cart");
 	};
 
+	// Initialise products and cart on page mount
 	useEffect(() => {
 		fetchProducts();
 		fetchCart();
 	}, []);
-
-	useEffect(() => {
-		console.log("Products", products);
-	}, [products]);
-
-	useEffect(() => {
-		console.log("Cart", cart);
-		// refetch live inventory when cart changes
-	}, [cart]);
 
 	return (
 		<SearchProvider>

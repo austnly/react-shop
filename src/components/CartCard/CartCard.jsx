@@ -1,29 +1,29 @@
 import { Link, useOutletContext } from "react-router-dom";
 import styles from "./CartCard.module.scss";
 import React from "react";
-import { useState, useEffect } from "react";
-import { reduceCart } from "../../services/server.js";
 import CartButtons from "../CartButtons/CartButtons";
 
 const CartCard = ({ product }) => {
 	const [products, setProducts, cart, setCart] = useOutletContext();
-	console.log("CartCard Rendering");
-
-	// const handleReduce = async () => {
-	// 	reduceCart(product.id);
-	// };
 
 	return (
 		<div className={styles.CartCard}>
 			<Link to={`/products/${product.id}`}>
-				<img src={product.imageUrl} alt="" />
+				<img
+					src={product.imageUrl}
+					alt={product.productName}
+					className={styles.CartCard__Img}
+				/>
 			</Link>
 			<div className={styles.CartCard__Info}>
 				<Link to={`/products/${product.id}`}>
 					<h5>{product.productName}</h5>
 				</Link>
-				<p className={styles.CartCard__Price}>${product.price} each</p>
+				<p className={styles.CartCard__Info_Price}>
+					${product.price} each
+				</p>
 
+				{/* Sorts and creates cart buttons for each variant in cart */}
 				{Object.entries(product.quantities)
 					.sort(
 						(a, b) =>
@@ -33,7 +33,6 @@ const CartCard = ({ product }) => {
 					.filter(([size, quant]) => quant > 0)
 					.map(([size, quant], index) => {
 						return (
-							// <></>
 							<CartButtons
 								key={index}
 								product={product}
@@ -42,7 +41,9 @@ const CartCard = ({ product }) => {
 							/>
 						);
 					})}
-				<p className={styles.CartCard__Subtotal}>
+
+				{/* Add subtotal for all product variants */}
+				<p className={styles.CartCard__Info_Subtotal}>
 					Subtotal: $
 					{(
 						Object.values(product.quantities).reduce(

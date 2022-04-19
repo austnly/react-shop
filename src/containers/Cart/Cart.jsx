@@ -4,8 +4,8 @@ import CartCard from "./../../components/CartCard";
 
 const Cart = () => {
 	const [products, setProducts, cart, setCart] = useOutletContext();
-	console.log("Cart Page Cart:", cart);
 
+	// Calculate total of items in cart
 	const total = cart
 		.reduce((acc, item) => {
 			return (
@@ -20,7 +20,7 @@ const Cart = () => {
 
 	return (
 		<div className={styles.Cart}>
-			<h3>Cart Items</h3>
+			<h3 className={styles.Cart__Heading}>Cart Items</h3>
 			{!cart.length ? (
 				<p>Your cart is empty. Get shopping!</p>
 			) : (
@@ -35,6 +35,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-// Handle a separate card collection on the database
-// Need to trigger changes in stock based on Cart

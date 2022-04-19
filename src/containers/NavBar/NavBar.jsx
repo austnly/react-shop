@@ -1,14 +1,14 @@
 import SearchBar from "../../components/SearchBar";
 import styles from "./NavBar.module.scss";
 import { Link } from "react-router-dom";
-import Logo from "../../components/Logo";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { Container, Navbar, Nav } from "react-bootstrap";
 
 const NavBar = () => {
 	const { search, setSearch } = useContext(SearchContext);
 
+	// Reset search term on page change
 	const handleReset = () => {
 		setSearch("");
 	};
@@ -16,7 +16,7 @@ const NavBar = () => {
 	return (
 		<Navbar bg="light" expand="md">
 			<Container fluid className={styles.NavBar}>
-				<Navbar.Brand href="/react-shop/">shop de mo.</Navbar.Brand>
+				<Navbar.Brand href="/react-shop/">shop dé mo.</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse
 					id="navbarScroll"
@@ -41,21 +41,6 @@ const NavBar = () => {
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
-		// <div className={styles.NavBar}>
-		// 	<Logo />
-		// 	<ul className={styles.NavBar__List}>
-		// 		<Link to="/" onClick={handleReset}>
-		// 			<li>Home</li>
-		// 		</Link>
-		// 		<Link to="/products" onClick={handleReset}>
-		// 			<li>Products</li>
-		// 		</Link>
-		// 		<Link to="/cart" onClick={handleReset}>
-		// 			<li>Cart</li>
-		// 		</Link>
-		// 	</ul>
-		// 	<SearchBar />
-		// </div>
 	);
 };
 

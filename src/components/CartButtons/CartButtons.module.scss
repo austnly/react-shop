@@ -6,13 +6,11 @@
 	align-items: center;
 	justify-content: center;
 
-	&_Btn {
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
+	&__Qty {
+		text-align: center;
 	}
 
-	h6 {
+	&__Heading {
 		margin: 0px;
 	}
 }

@@ -8,42 +8,47 @@ import {
 } from "../../services/server.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Badge, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const CartButtons = ({ product, variant, quantity }) => {
 	const [products, setProducts, cart, setCart] = useOutletContext();
-	console.log("CartButtons Rendering");
 
+	// Increase cart quantity by 1 and refetch cart, products
+	const handleIncrease = async () => {
+		await addToCart(product, variant);
+		setCart(await getCart());
+		setProducts(await getProducts());
+	};
+
+	// Reduce cart quantity by 1 and refetch cart, products
 	const handleReduce = async () => {
-		console.log("ID", product.id, "Variant", variant);
 		await reduceCart(product.id, variant, 1);
 		setCart(await getCart());
 		setProducts(await getProducts());
 	};
-	const handleRemove = async () => {
-		console.log("ID", product.id, "Variant", variant);
-		await reduceCart(product.id, variant, quantity);
-		setCart(await getCart());
-		setProducts(await getProducts());
-	};
 
-	const handleIncrease = async () => {
-		console.log("Product", product, "Variant", variant);
-		await addToCart(product, variant);
+	// Remove variant from cart and refetch cart, products
+	const handleRemove = async () => {
+		await reduceCart(product.id, variant, quantity);
 		setCart(await getCart());
 		setProducts(await getProducts());
 	};
 
 	return (
 		<div className={styles.CartButtons}>
-			<h6>{variant}</h6>
+			<h6 className={styles.CartButtons__Heading}>{variant}</h6>
 			<Button
 				variant="secondary"
 				onClick={handleReduce}
 				className={styles.CartButtons_Btn}>
 				-
 			</Button>
-			<input type="text" value={quantity} disabled />
+			<input
+				type="text"
+				value={quantity}
+				disabled
+				className={styles.CartButtons__Qty}
+			/>
 			<Button
 				variant="secondary"
 				onClick={handleIncrease}

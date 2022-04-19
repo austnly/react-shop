@@ -1,6 +1,5 @@
 .ProductPage {
 	display: flex;
-	// align-items: center;
 	justify-content: center;
 	flex-flow: row wrap;
 	gap: 20px;
@@ -13,11 +12,12 @@
 		object-fit: cover;
 	}
 
-	&__InfoBox {
+	&__Info {
 		display: flex;
-		gap: 10px;
 		justify-content: center;
 		flex-flow: column nowrap;
+		gap: 10px;
+
 		min-width: 350px;
 		width: 40%;
 		margin: 20px;
@@ -26,4 +26,5 @@
 
 .Heart {
 	color: red;
+	cursor: pointer;
 }

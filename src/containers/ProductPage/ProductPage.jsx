@@ -13,17 +13,16 @@ import { faHeart as unfilledHeart } from "@fortawesome/free-regular-svg-icons";
 import { Button } from "react-bootstrap";
 
 const ProductPage = () => {
-	const { productId } = useParams();
-	console.log(productId);
-
 	const [products, setProducts, cart, setCart] = useOutletContext();
 
-	console.log("product page prods", products);
+	// Product ID parameter in URL
+	const { productId } = useParams();
 
+	// Current Product, Variant (Size) states
 	const [current, setCurrent] = useState({});
 	const [variant, setVariant] = useState("none");
-	const [inStock, setInStock] = useState(null);
 
+	// Reset Current if Products changes
 	useEffect(() => {
 		if (products.length > 0)
 			setCurrent(
@@ -33,108 +32,42 @@ const ProductPage = () => {
 			);
 	}, [products]);
 
-	// const checkStock = () => {
-	// 	if (products.length > 0) {
-	// 		if (current?.["quantities"]?.[variant] > 0) {
-	// 			setInStock(true);
-	// 		} else {
-	// 			setInStock(false);
-	// 		}
-	// 	}
-	// };
+	// Set variant when select option is changed
+	const handleVariant = (e) => {
+		console.log("Variant selected: ", e.target.value);
+		setVariant(e.target.value);
+	};
 
-	// useEffect(() => {
-	// 	checkStock();
-	// }, [variant, cart]);
-
-	// useEffect(() => {
-	// 	console.log("In Stock?", inStock);
-	// }, [inStock]);
-
-	// const handleAdd = () => {
-	// 	const { quantities, variants, ...productInfo } = current;
-
-	// 	// Look for item with same ID in cart and copy into new Object
-	// 	const cartItem = {
-	// 		...cart.find((product) => product.id === productInfo.id),
-	// 	};
-
-	// 	const newCart = [...cart];
-	// 	const itemIdx = cart.findIndex(
-	// 		(product) => product.id === productInfo.id,
-	// 	);
-
-	// 	// If item exists then check the variants
-	// 	if (cartItem["id"]) {
-	// 		// If the selected variant is not in the cart
-	// 		if (!cartItem.variants.includes(variant)) {
-	// 			// Copy variants to new array
-	// 			const variantsArr = [...cartItem.variants];
-	// 			// Add variant to array
-	// 			variantsArr.push(variant);
-	// 			// Copy new array to cartItem
-	// 			cartItem.variants = [...variantsArr];
-	// 		}
-	// 		// Add 1 to cart item quantity
-	// 		cartItem["quantities"][variant] += 1;
-
-	// 		// Add to new cart array
-	// 		newCart[itemIdx] = cartItem;
-	// 		setCart(newCart);
-	// 	} else {
-	// 		const quants = variants.reduce((acc, size) => {
-	// 			acc[size] = 0;
-	// 			return acc;
-	// 		}, {});
-	// 		quants[variant] = 1;
-
-	// 		const newItem = {
-	// 			...productInfo,
-	// 			variants: [variant],
-	// 			quantities: { ...quants },
-	// 		};
-
-	// 		newCart.push(newItem);
-	// 		setCart(newCart);
-	// 	}
-	// };
-
-	// Change to DB cart to be set directly
-
+	// Adds current chosen product variant to cart in Database
+	// Refetch cart and products
 	const handleAddCart = async () => {
 		await addToCart(current, variant);
 		setCart(await getCart());
 		setProducts(await getProducts());
 	};
 
-	const handleVariant = (e) => {
-		console.log("Variant selected: ", e.target.value);
-		setVariant(e.target.value);
-	};
-
+	// Change favourite state in database and refetch products
 	const handleFav = async () => {
-		await favProduct(current.id, true);
-		setProducts(await getProducts());
-	};
-	const handleUnfav = async () => {
-		await favProduct(current.id, false);
+		await favProduct(current.id, !current.favourite);
 		setProducts(await getProducts());
 	};
 
 	return (
 		<div className={styles.ProductPage}>
+			{/* Product Image */}
 			<img
 				src={current.imageUrl}
 				alt={current.productName}
 				className={styles.ProductPage__Img}
 			/>
-			<div className={styles.ProductPage__InfoBox}>
+			{/* Product Info */}
+			<div className={styles.ProductPage__Info}>
 				<h3>
-					{current.productName}{" "}
+					{current.productName} {/* Like Button */}
 					{current.favourite ? (
 						<FontAwesomeIcon
 							icon={filledHeart}
-							onClick={handleUnfav}
+							onClick={handleFav}
 							className={styles.Heart}
 						/>
 					) : (
@@ -147,6 +80,7 @@ const ProductPage = () => {
 				</h3>
 				<p>${current.price}</p>
 
+				{/* Size Selector */}
 				<label htmlFor="variant">Size</label>
 				<select
 					name="variant"
@@ -169,6 +103,8 @@ const ProductPage = () => {
 						<></>
 					)}
 				</select>
+
+				{/* Stock Checker */}
 				{current?.["quantities"]?.[variant] > 0 ? (
 					<p>{current["quantities"][variant]} In Stock</p>
 				) : variant === "none" ? (
@@ -176,16 +112,17 @@ const ProductPage = () => {
 				) : (
 					<p>Out of Stock</p>
 				)}
+
+				{/* Add to Cart Button */}
 				<Button
 					variant="outline-success"
 					onClick={handleAddCart}
 					disabled={variant === "none"}>
 					Add to Cart
 				</Button>
+
+				{/* Description */}
 				<p>{current.description}</p>
-				{/* <button onClick={handleAddCart} disabled={variant === "none"}>
-					Add to Cart
-				</button> */}
 			</div>
 		</div>
 	);

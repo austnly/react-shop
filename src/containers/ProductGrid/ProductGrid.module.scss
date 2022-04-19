@@ -1,5 +1,6 @@
 .ProductGrid {
 	margin: 40px;
+
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
@@ -9,11 +10,9 @@
 	&__Grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 300px);
-
-		width: 100%;
-
+		justify-content: center;
 		gap: 10px;
 
-		justify-content: center;
+		width: 100%;
 	}
 }

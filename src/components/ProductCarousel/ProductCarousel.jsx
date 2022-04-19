@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const ProductCarousel = () => {
 	const { search, setSearch } = useContext(SearchContext);
 
+	// Custom search handler for each featured category
 	const handleFeatureSearch = (productType) => {
 		setSearch(productType);
 		navigate("/products");

@@ -7,17 +7,19 @@ import { SearchContext } from "../../context/SearchContext";
 import { Pagination } from "react-bootstrap";
 
 const ProductGrid = ({ fav = false }) => {
-	console.log("-----Product Grid Rendering------");
+	// Access Products and Search term from context
 	const [products] = useOutletContext();
+	const { search, setSearch } = useContext(SearchContext);
 
+	// Set a state for Displayed Products - changes depending on search or page
 	const [displayedProds, setDisplayedProds] = useState([]);
 
+	// Page state
 	const [page, setPage] = useState(1);
+	// Results per page state - currently unused
 	const [perPage, setPerPage] = useState(10);
 
-	const { search, setSearch } = useContext(SearchContext);
-	console.log("PG: Search term is", search);
-
+	// Filters products list to smaller array to be displayed
 	const filterProds = (
 		products,
 		page,
@@ -29,12 +31,13 @@ const ProductGrid = ({ fav = false }) => {
 		if (!products.length) {
 			return [];
 		} else {
-			console.log("Search Filter:", search);
+			// Filtering products array by search
 			const arrToSort = products.filter((product) =>
 				product.productName
 					.toLowerCase()
 					.includes(filter.toLowerCase()),
 			);
+			// Sorting products array by property
 			arrToSort.sort((a, b) => {
 				if (
 					a[prop].toString().toLowerCase() <
@@ -50,20 +53,23 @@ const ProductGrid = ({ fav = false }) => {
 					return 0;
 				}
 			});
+			// Index of first result to display
 			const startIndex = (page - 1) * perPage;
-			// console.log(arrToSort);
 
+			// Returns all results if max is true, else perPage results
 			return max
 				? arrToSort
 				: arrToSort.slice(startIndex, startIndex + perPage);
 		}
 	};
 
+	// Calculate max number of pages for current filter
 	const maxPages = Math.ceil(
 		filterProds(products, page, perPage, "id", search, true).length /
 			perPage,
 	);
 
+	// Creating Bootstrap Pagination page components array
 	let items = [];
 	for (let number = 1; number <= maxPages; number++) {
 		items.push(
@@ -78,8 +84,13 @@ const ProductGrid = ({ fav = false }) => {
 		);
 	}
 
+	// Reset to first page when search term changes
 	useEffect(() => {
-		console.log("Search ProductGrid");
+		setPage(1);
+	}, [search]);
+
+	// Re-filter displayed products if products, search term, page #, or we are on the favourites page
+	useEffect(() => {
 		if (products.length && !fav) {
 			setDisplayedProds(
 				filterProds(products, page, perPage, "id", search),
@@ -89,16 +100,9 @@ const ProductGrid = ({ fav = false }) => {
 		}
 	}, [products, search, page, perPage, fav]);
 
-	useEffect(() => {
-		console.log(displayedProds);
-	}, [displayedProds]);
-
-	useEffect(() => {
-		setPage(1);
-	}, [search]);
-
 	return (
 		<div className={styles.ProductGrid}>
+			{/* Alternate Titles for Grid */}
 			{fav ? (
 				<h4>Favourites</h4>
 			) : search ? (
@@ -106,11 +110,13 @@ const ProductGrid = ({ fav = false }) => {
 			) : (
 				<h4>All products</h4>
 			)}
+			{/* No pagination for favourites page */}
 			{!fav && (
 				<Pagination className={styles.ProductGrid__Pages}>
 					{items}
 				</Pagination>
 			)}
+			{/* Product Cards in a grid */}
 			<div className={styles.ProductGrid__Grid}>
 				{displayedProds.map((product) => {
 					return <ProductCard key={product.id} product={product} />;
