@@ -117,22 +117,6 @@ export const favProduct = async (productId, bool) => {
 	await docRef.set({ favourite: bool }, { merge: true });
 };
 
-// export const updateFirestore = async (productId, record, collection) => {
-// 	const collectionRef = firestore.collection(collection);
-// 	const docRef = collectionRef.doc(productId);
-// 	await docRef.update(record);
-// };
-
-// export const updateProduct = async (productId, record) => {
-// 	await updateFirestore(productId, record, "products");
-// };
-
-// export const updateCart = async (productId, record) => {
-// 	const collectionRef = firestore.collection("cart");
-// 	const docRef = collectionRef.doc(productId);
-// 	await docRef.update(record);
-// };
-
 // Delete
 export const rmFromCart = async (productId) => {
 	const docRef = firestore.collection("cart").doc(productId);
