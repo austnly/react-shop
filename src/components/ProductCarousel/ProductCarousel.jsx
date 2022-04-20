@@ -47,7 +47,7 @@ const ProductCarousel = () => {
 					<Carousel.Caption
 						className={styles.ProductCarousel__Text}
 						onClick={() => {
-							handleFeatureSearch("hat");
+							handleFeatureSearch("pants");
 						}}>
 						<h3>Featured Pants</h3>
 						<p>
@@ -66,7 +66,7 @@ const ProductCarousel = () => {
 					<Carousel.Caption
 						className={styles.ProductCarousel__Text}
 						onClick={() => {
-							handleFeatureSearch("hat");
+							handleFeatureSearch("shirt");
 						}}>
 						<h3>Featured Shirt</h3>
 						<p>

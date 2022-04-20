@@ -122,3 +122,5 @@ export const rmFromCart = async (productId) => {
 	const docRef = firestore.collection("cart").doc(productId);
 	await docRef.delete();
 };
+
+// Comment through server code

@@ -117,7 +117,10 @@ const ProductPage = () => {
 				<Button
 					variant="outline-success"
 					onClick={handleAddCart}
-					disabled={variant === "none"}>
+					disabled={
+						variant === "none" ||
+						!current?.["quantities"]?.[variant]
+					}>
 					Add to Cart
 				</Button>
 

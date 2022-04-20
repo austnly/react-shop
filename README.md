@@ -116,6 +116,8 @@ I encountered the following issues with using React/Firestore and found the foll
 
 -   [x] Using relative paths for images in multiple different components => Made image path info relative to public root folder; Another solution was to import images before use in components
 -   [x] Not finding suitable stock data/API data sources => created my own randomised data set to seed to Firestore
+-   [x] Fix carousel links
+-   [x] Disable add to card on out of stock
 
 ### Additions
 
