@@ -16,6 +16,7 @@ A demo e-commerce site using Google Firestore, the React library, and React-Boot
     -   [Bonus Features](#bonus-features)
     -   [Plan](#planning-logic)
     -   [Issues Addressed](#issues-addressed)
+    -   [Bugs](#bugs-to-address)
     -   [Features Added](#additions)
 -   [Future Additions](#future-additions)
 
@@ -118,6 +119,10 @@ I encountered the following issues with using React/Firestore and found the foll
 -   [x] Not finding suitable stock data/API data sources => created my own randomised data set to seed to Firestore
 -   [x] Fix carousel links
 -   [x] Disable add to card on out of stock
+
+### Bugs to Address
+
+-   [ ] Fix cart layout on mobile
 
 ### Additions
 
